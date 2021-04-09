@@ -1,0 +1,44 @@
+<form [formGroup]='registerForm' (ngSubmit)="registerForm.valid && register()" autocomplete="off">
+    <h2 class="text-center text-primary">Đăng ký </h2>
+    <hr>
+
+    <div class="form-group">
+        <label class="control-label" style="margin-right: 10px;">Tôi là: </label>
+        <label class="radio-inline">
+            <input type="radio" value='male' formControlName='gender'> Nam
+        </label>
+        <label class="radio-inline">
+            <input type="radio" value='female' formControlName='gender' class="ml-3"> Nữ
+        </label>
+    </div>
+
+    <app-text-input [formControl]='registerForm.controls["username"]'
+        [label]='"Tên đăng nhập "'></app-text-input>
+    <app-text-input [formControl]='registerForm.controls["knownAs"]'
+        [label]='"Biệt danh "'></app-text-input>
+    <app-date-input [formControl]='registerForm.controls["dateOfBirth"]'
+        [label]='"Ngày sinh "' [maxDate]='maxDate'></app-date-input>
+    <app-text-input [formControl]='registerForm.controls["city"]'
+        [label]='"Thành phố"'></app-text-input>
+    <app-text-input [formControl]='registerForm.controls["country"]'
+        [label]='"Quốc gia "'></app-text-input>
+    <app-text-input [formControl]='registerForm.controls["password"]'
+        [label]='"Mật khẩu"' [type]='"password"'>
+    </app-text-input>
+    <app-text-input [formControl]='registerForm.controls["confirmPassword"]'
+        [label]='"Nhập lại mật khẩu"'
+        [type]='"password"'></app-text-input>
+
+    <div class="row" *ngIf="validationErrors.length > 0">
+        <ul class="text-danger">
+            <li *ngFor="let error of validationErrors">
+                {{error}}
+            </li>
+        </ul>
+    </div>
+
+    <div class="form-group text-center">
+        <button [disabled]='!registerForm.valid' class="btn btn-success mr-2" type="submit">Đăng ký </button>
+        <button class="btn btn-default mr-2" (click)="cancel()" type="button">Hủy </button>
+    </div>
+</form>
