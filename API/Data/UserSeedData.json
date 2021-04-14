@@ -95,7 +95,7 @@
         ]
     },
     {
-        "Use        rName": "Todd",
+        "UserName": "Todd",
         "Gender": "male",
         "DateOfBirth": "1950-02-07",
         "KnownAs": "Todd",

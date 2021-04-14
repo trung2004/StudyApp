@@ -4,6 +4,9 @@
 
         <ul class="navbar-nav mr-auto">
             <ng-container *ngIf="accountService.currentUser$ | async">
+              <li class="nav-item">
+                <a class="nav-link" routerLink='/list-lesson' routerLinkActive='active' >Khóa học hay</a>
+              </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink='/members' routerLinkActive='active' >Tìm bạn</a>
                 </li>
